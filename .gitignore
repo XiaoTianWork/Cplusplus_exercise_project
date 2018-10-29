@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+#files
+/AddressList/Debug/
+/AddressList/x64/
+/AddressList/AddressList/Debug/
+/AddressList/AddressList/x64/
