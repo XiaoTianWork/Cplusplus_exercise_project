@@ -13,6 +13,7 @@ int main()
 	cout << "3、查找" << endl;
 	cout << "4、显示所有" << endl;
 	cout << "5、退出程序" << endl;
+	cout << "6、删除文件" << endl;
 	cin >> input;
 	bool state = true;
 	while (state)
@@ -37,6 +38,11 @@ int main()
 		case 5:
 			std::cerr << "退出程序" << std::endl;
 			state = false;
+			break;
+		case 6:
+			std::cerr << "删除文件" << std::endl;
+			mybook.removefile();
+			mybook.readfile();
 			break;
 		default:
 			std::cerr << "输入错误" << std::endl;

@@ -1,4 +1,5 @@
 #include <fstream>
+#include <cstdio>
 #include "List.h"
 List::List()
 {
@@ -28,6 +29,7 @@ int List::readfile()//读取文件
 		{
 			myfile.push_back(p);
 		}
+		this->showall();
 		readfile.close();
 	}
 	else
@@ -70,10 +72,21 @@ void List::flash()//刷新文件内容
 	setout();
 	for (iter = this->myfile.begin(); iter != this->myfile.end(); iter++)
 	{
+		std::cout.width(15);//字域宽度为15
 		outfile << iter->name;
+		std::cout.width(15);//字域宽度为15
 		outfile << iter->telnumber << "\n";
 	}
 	outfile.close(); //关闭文件
+}
+int List::removefile()
+{
+	if (remove("book.txt") == 0)
+		std::cout << "删除成功" << std::endl;
+	else
+		std::cout << "删除失败" << std::endl;
+	this->flash();
+	return 0;
 }
 void List::del()
 {
@@ -112,9 +125,10 @@ int List::search()
 		if (name == iter->name)
 		{
 			std::cout<< iter->name << "\t\t" << iter->telnumber << "\n";
+			return 0;
 		}
-		std::cout << "未找到所需要的结果！";
+		
 	}
-	
+	std::cout << "未找到所需要的结果！\n";
 	return 0;
 }
