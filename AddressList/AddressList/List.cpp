@@ -71,7 +71,7 @@ void List::flash()//刷新文件内容
 	for (iter = this->myfile.begin(); iter != this->myfile.end(); iter++)
 	{
 		outfile << iter->name;
-		outfile << iter->telnumber;
+		outfile << iter->telnumber << "\n";
 	}
 	outfile.close(); //关闭文件
 }
@@ -86,7 +86,7 @@ void List::del()
 	std::cout << "请输入要删除的姓名" << std::endl;
 	std::cin >> name;
 	std::vector<Person>::iterator iter;
-	for (iter = myfile.begin(); iter != myfile.end(); iter++)
+	for (iter = myfile.begin(); iter != myfile.end(); )
 	{
 		if (iter->name == name)
 		{
@@ -113,7 +113,8 @@ int List::search()
 		{
 			std::cout<< iter->name << "\t\t" << iter->telnumber << "\n";
 		}
+		std::cout << "未找到所需要的结果！";
 	}
-	std::cout << "未找到所需要的结果！";
+	
 	return 0;
 }

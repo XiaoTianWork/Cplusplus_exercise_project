@@ -28,6 +28,7 @@ int main()
 			break;
 		case 3:
 			std::cerr << "查找" << std::endl;
+			mybook.search();
 			break;
 		case 4:
 			std::cerr << "显示所有" << std::endl;
@@ -35,6 +36,7 @@ int main()
 			break;
 		case 5:
 			std::cerr << "退出程序" << std::endl;
+			state = false;
 			break;
 		default:
 			std::cerr << "输入错误" << std::endl;
